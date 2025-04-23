@@ -1,0 +1,64 @@
+---
+- name: Deploy the base machine configuration for Debian
+  hosts: all
+
+  # Still no sudo so let's use su (--ask-become-pass)
+  become: true
+  become_method: ansible.builtin.su
+
+  tasks:
+    - name: Install the base packages
+      ansible.builtin.apt:
+        name: "{{ packages }}"
+        state: present
+
+    - name: Add the user to the sudoers.d file ({{ user }})
+      ansible.builtin.lineinfile:
+        path: /etc/sudoers.d/{{ user }}
+        line: "{{ user }} ALL=(ALL) NOPASSWD:ALL"
+        validate: /usr/sbin/visudo -cf %s
+        create: true
+        mode: "0644"
+        state: present
+
+    - name: Set the hostname ({{ hostname }})
+      ansible.builtin.hostname:
+        name: "{{ hostname }}"
+
+    - name: Set the authorized key file for {{ user }}
+      ansible.posix.authorized_key:
+        user: "{{ user }}"
+        state: present
+        key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+
+    - name: Set the network with an interfaces file (ip -> {{ address }})
+      ansible.builtin.template:
+        src: interfaces.j2
+        dest: /etc/network/interfaces
+        owner: root
+        group: root
+        mode: "0644"
+        backup: true
+
+    - name: Set up the hosts file
+      ansible.builtin.lineinfile:
+        path: /etc/hosts
+        line: "{{ address }} {{ fqdn }} {{ hostname }}"
+        state: present
+
+    - name: Set the magenta color prompt for root
+      ansible.builtin.lineinfile:
+        path: /root/.bashrc
+        line: PS1='${debian_chroot:+($debian_chroot)}\[\033[01;35m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+        state: present
+
+    - name: Set the yellow color prompt for {{ user }}
+      ansible.builtin.lineinfile:
+        path: "/home/{{ user }}/.bashrc"
+        line: PS1='${debian_chroot:+($debian_chroot)}\[\033[01;33m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+        state: present
+
+    - name: The deployment is ready!
+      ansible.builtin.pause:
+        prompt: IP -> {{ address }} | Host -> {{ fqdn }} | Restart the remote machine now!
+        seconds: 10
