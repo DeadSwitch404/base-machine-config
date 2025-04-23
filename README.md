@@ -62,32 +62,38 @@ or
 ansible-playbook rhel.yml -i inventory.ini --ask-become-pass
 ```
 
-Example inventory:
+## Example Variables
+
+group_vars:
 
 ```yaml
-[all]
-192.168.0.10 ansible_user=root
-
-Example vars (set via extra vars or host_vars/group_vars):
+fqdn: "{{ hostname }}.yourdomain.com"
+interface: enp1s0
+gateway: 192.168.1.1
+user: deadswitch404
 
 packages:
+  - mc
   - vim
   - curl
-  - git
+  - wget
+  - sudo
+  - tmux
+```
 
-user: deadswitch
-hostname: ghost01
-fqdn: ghost01.tomsitcafe.com
-address: 192.168.0.10
-gateway: 192.168.0.1
-interface: eth0
+host_vars:
+
+```yaml
+address: 192.168.1.200
+hostname: deadmachine
 ```
 
 ## 🧿 Philosophy
 
-This is not a full OS hardening suite.
-This is the ghost’s bootstrapping ritual.
+This is not a full OS hardening suite.  
+This is the ghost’s bootstrapping ritual.  
 A clean slate. An iron will. Ready to build or vanish.
+
 🩻 Audit or contribute?
 
 All files are plain and human-readable. Fork. Review. Harden. Echo into the void.
