@@ -53,13 +53,13 @@ ansible-galaxy collection install community.general
 Clone the repo and adapt your inventory and variables:
 
 ```bash
-ansible-playbook debian.yml -i inventory.ini --ask-become-pass
+ansible-playbook play-deploy-debian.yml -i inventory.ini --ask-become-pass
 ```
 
 or
 
 ```bash
-ansible-playbook rhel.yml -i inventory.ini --ask-become-pass
+ansible-playbook play-deploy-redhat.yml -i inventory.ini --ask-become-pass
 ```
 
 ## Example Variables
