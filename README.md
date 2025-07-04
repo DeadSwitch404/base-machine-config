@@ -1,11 +1,10 @@
 # DeadSwitch Base Machine Configuration
 
-_"In silence, we rise. In the switch, we fade."_  
-**DeadSwitch | The Cyber Ghost**
-
+**DeadSwitch | The Silent Architect**
+*"In silence, I rise. In storms, I endure."*
 ---
 
-## ⚙️ What is this?
+##  What is this?
 
 Two minimal yet powerful **Ansible playbooks** to deploy your base machine configuration for:
 
@@ -16,9 +15,9 @@ DeadSwitch doesn't waste time. These playbooks are designed to be used **right a
 
 ---
 
-## 📦 Features
+## Features
 
-🔧 **Core tasks included:**
+**Core tasks included:**
 
 - Install base packages (customizable list)
 - Set static IP configuration
@@ -28,15 +27,15 @@ DeadSwitch doesn't waste time. These playbooks are designed to be used **right a
 - Tweak the shell prompt colors for easy role recognition (magenta = root, yellow = user)
 - Final pause to confirm deployment status
 
-🧠 **Debian playbook uses**:
+**Debian playbook uses**:
 - `apt`, traditional `/etc/network/interfaces` configuration
 
-🔥 **RHEL playbook uses**:
+**RHEL playbook uses**:
 - `dnf`, dynamic `nmcli` interface setup
 
 ---
 
-## 🛡️ Requirements
+## Requirements
 
 - Ansible 2.15+
 - Local machine with SSH access to target
@@ -48,7 +47,7 @@ Install extra collections:
 ansible-galaxy collection install community.general
 ```
 
-## 🚀 Usage
+## Usage
 
 Clone the repo and adapt your inventory and variables:
 
@@ -88,17 +87,17 @@ address: 192.168.1.200
 hostname: deadmachine
 ```
 
-## 🧿 Philosophy
+## Philosophy
 
 This is not a full OS hardening suite.  
 This is the ghost’s bootstrapping ritual.  
 A clean slate. An iron will. Ready to build or vanish.
 
-🩻 Audit or contribute?
+## Audit or contribute?
 
 All files are plain and human-readable. Fork. Review. Harden. Echo into the void.
 
     DeadSwitch operates where others hesitate.
     Share, fork, or forget—this code is open to the bold.
 
-🕶️ Fear the silence. Fear the switch.
+Fear the silence. Fear the switch.
