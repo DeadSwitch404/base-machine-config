@@ -1,7 +1,7 @@
 # DeadSwitch Base Machine Configuration
 
-**DeadSwitch | The Silent Architect**
-*"In silence, I rise. In storms, I endure."*
+**DeadSwitch | The Silent Architect**  
+*"In silence, I rise. In storms, I endure."*  
 ---
 
 ##  What is this?
