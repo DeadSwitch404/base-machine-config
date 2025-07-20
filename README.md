@@ -96,5 +96,5 @@ All files are plain and human-readable. Fork. Review. Harden. Echo into the void
     DeadSwitch operates where others hesitate.
     Share, fork, or forget—this code is open to the bold.
 
-*DeadSwitch | The Silent Architect*
-"In silence, I rise. In storms, I endure."
+*DeadSwitch | The Silent Architect*  
+"In silence, I rise. In storms, I endure."  
