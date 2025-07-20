@@ -1,9 +1,5 @@
 # DeadSwitch Base Machine Configuration
 
-**DeadSwitch | The Silent Architect**  
-*"In silence, I rise. In storms, I endure."*  
----
-
 ##  What is this?
 
 Two minimal yet powerful **Ansible playbooks** to deploy your base machine configuration for:
@@ -20,7 +16,7 @@ DeadSwitch doesn't waste time. These playbooks are designed to be used **right a
 **Core tasks included:**
 
 - Install base packages (customizable list)
-- Set static IP configuration
+- Set static IP configuration on the **main** management interface
 - Assign hostname and FQDN
 - Create a user with **passwordless sudo**
 - Deploy **authorized SSH keys**
@@ -89,8 +85,8 @@ hostname: deadmachine
 
 ## Philosophy
 
-This is not a full OS hardening suite.  
-This is the ghost’s bootstrapping ritual.  
+This is **not** a full OS hardening/configuration suite.  
+This is the ghost's bootstrapping.  
 A clean slate. An iron will. Ready to build or vanish.
 
 ## Audit or contribute?
@@ -100,4 +96,5 @@ All files are plain and human-readable. Fork. Review. Harden. Echo into the void
     DeadSwitch operates where others hesitate.
     Share, fork, or forget—this code is open to the bold.
 
-Fear the silence. Fear the switch.
+*DeadSwitch | The Silent Architect*
+"In silence, I rise. In storms, I endure."
